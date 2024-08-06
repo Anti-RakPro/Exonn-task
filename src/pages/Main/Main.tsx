@@ -1,8 +1,8 @@
 import React from "react";
 
 function Main() {
-    return <div>
-        <p>text text text</p>
+    return <div className="main-grid">
+
     </div>
 }
 
