@@ -1,6 +1,16 @@
 *{
-  background-color: black;
-  color: white;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: white;
+  /*color: white;*/
+}
+
+div {
+  box-sizing: border-box;
+  border: 1px solid black;
+  text-align: center;
+
 }
 
 body {
