@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Main.module.css"
+import {Route, Routes} from "react-router-dom";
 
 
 function Main() {
