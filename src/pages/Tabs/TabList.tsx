@@ -23,14 +23,19 @@ const obj = [{
 }, ]
 const tabs = [...obj]
 
+interface Tab {
+    routePath: string;
+    // Add other properties if necessary
+}
+
 function TabList() {
 
     const location = useLocation();
     const currentUrl = location.pathname + location.search + location.hash;
 
-    function isOpened(tab):any{
+    function tabStyle(tab:Tab){
 
-
+        console.log('-->', currentUrl === tab.routePath? 'tab-item tab-item_active' : 'tab-items')
         return currentUrl === tab.routePath? 'tab-item_active' : ''
     }
 
@@ -38,7 +43,7 @@ function TabList() {
     return <div className={styles["tab-row"]}>
         {tabs.map((tab) => {
             return (
-                    <Link className={styles[`tab-item ${isOpened(tab)}`]} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
+                    <Link className={`${styles['tab-item']} ${tabStyle(tab)}`} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
             )
         })}
     </div>

@@ -21,6 +21,5 @@
 }
 
 .tab-item_active{
-    background-color: rgb(241, 245, 248);;
-    color: black;
+    background-color: red;
 }
