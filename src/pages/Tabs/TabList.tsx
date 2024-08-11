@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./TabList.module.css";
 import {Link, useLocation } from "react-router-dom";
+// import classnames from 'classnames';
 
 const obj = [{
     id: '',
@@ -36,14 +37,18 @@ function TabList() {
     function tabStyle(tab:Tab){
 
         console.log('-->', currentUrl === tab.routePath? 'tab-item tab-item_active' : 'tab-items')
-        return currentUrl === tab.routePath? 'tab-item_active' : ''
+        return currentUrl === tab.routePath? styles['tab-item_active'] : ''
     }
+
+    // const linkStyle = classnames ('tab-item', {
+    //     'tab-item_active' : currentUrl === tab.routePath
+    // })
 
 
     return <div className={styles["tab-row"]}>
         {tabs.map((tab) => {
             return (
-                    <Link className={`${styles['tab-item']} ${tabStyle(tab)}`} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
+                    <Link className={`${styles['tab-item']} ${currentUrl === tab.routePath? styles['tab-item_active'] : ''}`} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
             )
         })}
     </div>
