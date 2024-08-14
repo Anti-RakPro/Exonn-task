@@ -17,9 +17,9 @@
 }
 .tab-item:hover {
     background-color: rgb(241, 245, 248);
-    color: black;
 }
 
 .tab-item_active{
-    background-color: red;
+    background-color: rgb(241, 245, 248);
+    color: black;
 }

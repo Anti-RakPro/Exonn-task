@@ -21,6 +21,36 @@ const obj = [{
     routePath: '/dashboard3',
     // routeElement: {Dashboard},
     isOpened: false,
+},{
+    id: '',
+    title: 'Dashboard4',
+    routePath: '/dashboard4',
+    // routeElement: {Dashboard},
+    isOpened: false,
+},{
+    id: '',
+    title: 'Dashboard5',
+    routePath: '/dashboard5',
+    // routeElement: {Dashboard},
+    isOpened: false,
+},{
+    id: '',
+    title: 'Dashboard6',
+    routePath: '/dashboard6',
+    // routeElement: {Dashboard},
+    isOpened: false,
+},{
+    id: '',
+    title: 'Dashboard7',
+    routePath: '/dashboard7',
+    // routeElement: {Dashboard},
+    isOpened: false,
+},{
+    id: '',
+    title: 'Dashboard8',
+    routePath: '/dashboard8',
+    // routeElement: {Dashboard},
+    isOpened: false,
 }, ]
 const tabs = [...obj]
 
@@ -40,6 +70,10 @@ function TabList() {
         return currentUrl === tab.routePath? styles['tab-item_active'] : ''
     }
 
+    function strStyle (tab: any) {
+        return `${styles["tab-item"]} ${currentUrl === tab.routePath? styles['tab-item_active'] : ''}`
+    }
+
     // const linkStyle = classnames ('tab-item', {
     //     'tab-item_active' : currentUrl === tab.routePath
     // })
@@ -48,7 +82,7 @@ function TabList() {
     return <div className={styles["tab-row"]}>
         {tabs.map((tab) => {
             return (
-                    <Link className={`${styles['tab-item']} ${currentUrl === tab.routePath? styles['tab-item_active'] : ''}`} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
+                    <Link className={strStyle(tab)} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
             )
         })}
     </div>

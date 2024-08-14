@@ -1,13 +1,16 @@
 .main-grid{
-    height: calc(100vh - 4px);
+    min-height: calc(100vh - 4px);
+    min-width: 100vw;
     display: grid;
     grid-template-columns:minmax(30px, 10%) 1fr;
+    overflow: hidden;
 }
 
 .main-grid_left-side{
 
 }
 .main-grid_right-side{
+    /*width: 100%;*/
     display: grid;
     grid-template-rows: minmax(40px, 60px) 1fr; ;
 }
