@@ -1,33 +1,27 @@
-.main-grid{
-    min-height: calc(100vh - 4px);
-    min-width: 100vw;
+.main-grid {
+    height: 100vh;
     display: grid;
     grid-template-columns:minmax(30px, 10%) 1fr;
-    overflow: hidden;
 }
 
-.main-grid_left-side{
+.main-grid_left-side {
 
 }
-.main-grid_right-side{
+
+.main-grid_right-side {
     /*width: 100%;*/
     display: grid;
-    grid-template-rows: minmax(40px, 60px) 1fr; ;
+    grid-template-rows: minmax(40px, 60px) 1fr;;
 }
 
 .main-block {
     height: 100%;
-    /*position: relative;*/
-
+    position: relative;
 }
 
-
-
-
-.main-display{
+.main-display {
     /*position: absolute;*/
-    top: 30px;
-    left: 0;
+    margin-top: 30px;
     height: calc(100% - 30px);
     width: 100%;
     background-color: rgb(241, 245, 248);

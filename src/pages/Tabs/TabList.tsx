@@ -54,23 +54,23 @@ const obj = [{
 }, ]
 const tabs = [...obj]
 
-interface Tab {
-    routePath: string;
-    // Add other properties if necessary
-}
+// interface Tab {
+//     routePath: string;
+//     // Add other properties if necessary
+// }
 
 function TabList() {
 
     const location = useLocation();
     const currentUrl = location.pathname + location.search + location.hash;
 
-    function tabStyle(tab:Tab){
+    // function tabStyle(tab:Tab){
+    //
+    //     console.log('-->', currentUrl === tab.routePath? 'tab-item tab-item_active' : 'tab-items')
+    //     return currentUrl === tab.routePath? styles['tab-item_active'] : ''
+    // }
 
-        console.log('-->', currentUrl === tab.routePath? 'tab-item tab-item_active' : 'tab-items')
-        return currentUrl === tab.routePath? styles['tab-item_active'] : ''
-    }
-
-    function strStyle (tab: any) {
+    function tabStyle (tab: any) {
         return `${styles["tab-item"]} ${currentUrl === tab.routePath? styles['tab-item_active'] : ''}`
     }
 
@@ -82,7 +82,7 @@ function TabList() {
     return <div className={styles["tab-row"]}>
         {tabs.map((tab) => {
             return (
-                    <Link className={strStyle(tab)} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
+                    <Link className={tabStyle(tab)} key={tab.id} to={tab.routePath}> {tab.title}  </Link>
             )
         })}
     </div>
