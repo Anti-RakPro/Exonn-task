@@ -1,13 +1,13 @@
 .tab-row {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    max-width: 100%;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*display: flex;*/
+    /*max-width: 100%;*/
     /*display: inline-block;*/
-    height: 30px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    height: 40px;
+    /*overflow-x: auto;*/
+    /*overflow-y: hidden;*/
     /*flex-wrap: nowrap;*/
 }
 
@@ -26,4 +26,37 @@
 .tab-item_active{
     background-color: rgb(241, 245, 248);
     color: black;
+}
+
+.track-horizontal {
+    position: absolute;
+    height: 6px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    border-radius: 3px;
+    /*background-color: red;*/
+
+}
+
+.track-vertical{
+    position: absolute;
+    width: 6px;
+    right: 2px;
+    bottom: 2px;
+    top: 2px;
+    border-radius: 3px;
+
+    display: none;
+    /*background-color: blue;*/
+}
+.thumb-horizontal {
+    background-color: green;
+}
+.thumb-vertical {
+    background-color: gray;
+}
+.view{
+    display: flex;
+    background-color: cornflowerblue;
 }
