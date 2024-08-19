@@ -2,9 +2,11 @@ import React from "react";
 import styles from "./TabList.module.css";
 import {Link, useLocation} from "react-router-dom";
 import {Scrollbars} from 'react-custom-scrollbars-2'
-// import classnames from 'classnames';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-const obj = [{
+
+const obj = [
+    {
     id: '',
     title: 'Dashboard',
     routePath: '/dashboard',
