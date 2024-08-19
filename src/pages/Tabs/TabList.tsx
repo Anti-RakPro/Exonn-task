@@ -65,45 +65,14 @@ function TabList() {
     const location = useLocation();
     const currentUrl = location.pathname + location.search + location.hash;
 
-    // function tabStyle(tab:Tab){
-    //
-    //     console.log('-->', currentUrl === tab.routePath? 'tab-item tab-item_active' : 'tab-items')
-    //     return currentUrl === tab.routePath? styles['tab-item_active'] : ''
-    // }
-
     function tabStyle(tab: any) {
         return `${styles["tab-item"]} ${currentUrl === tab.routePath ? styles['tab-item_active'] : ''}`
     }
 
-    function StyleTrackHorizontal() {
-        return styles["track-horizontal"]
-    }
-
-    // function StyleTrackVertical(tab: any) {
-    //     return
-    // }
-
-    function StyleThumbHorizontal(tab: any) {
-        return
-    }
-
-    // function StyleThumbVertical(tab: any) {
-    //     return
-    // }
-
-    function StyleView(tab: any) {
-        return
-    }
-
-
     return <div className={styles["tab-row"]}>
         <Scrollbars
-            onScroll={(alo)=>{console.log(alo)}}
-            // onScrollFrame={this.handleScrollFrame}
-            // onScrollStart={this.handleScrollStart}
-            // onScrollStop={this.handleScrollStop}
-            renderTrackHorizontal={props => <div {...props} className={StyleTrackHorizontal()}/>}
-            // renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}
+            hideTracksWhenNotNeeded={true}
+            renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}
             renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}
             renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}
             renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}
