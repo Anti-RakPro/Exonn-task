@@ -7,16 +7,14 @@ import TabList from "../Tabs/TabList";
 
 function Main() {
     return (<div className={styles["main-grid"]}>
-        <div className={styles["main-grid_left-side"]}>Side bar</div>
-        <div className={styles["main-grid_right-side"]}>
-            <div>Header</div>
-            <div className={styles["main-block"]}>
-                <TabList/>
-                <div className={styles["main-display"]}>
-                    <Routes>
-                        <Route path={'/dashboard'} element={<Dashboard/>}/>
-                    </Routes>
-                </div>
+        <div className={styles["side-bar"]}>Side bar</div>
+        <div className={styles["header"]}>Header</div>
+        <div className={styles["main-block"]}>
+            <TabList/>
+            <div className={styles["main-display"]}>
+                <Routes>
+                    <Route path={'/dashboard'} element={<Dashboard/>}/>
+                </Routes>
             </div>
         </div>
     </div>)
