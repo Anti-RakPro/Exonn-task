@@ -87,7 +87,6 @@ function TabList() {
             })}
         </Scrollbars>
     </div>
-
 }
 
 export default TabList
