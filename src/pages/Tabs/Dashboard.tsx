@@ -1,36 +1,47 @@
 import React, {useCallback} from "react";
-import { useLocation } from 'react-router-dom';
+import {Route, useLocation} from 'react-router-dom';
+import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+// fake data generator
+const getItems = (count: number) =>
+    Array.from({ length: count }, (v, k) => k).map(k => ({
+        id: `item-${k}`,
+        content: `item ${k}`
+    }));
+const fakeData = getItems(10)
 
-
-function Dashboard(){
+function Dashboard() {
 
     const location = useLocation();
     const currentUrl = location.pathname + location.search + location.hash;
 
-    return(
+    return (
         <div>
             <div>Dashboard</div>
             <div>{currentUrl}</div>
-            {/*<DragDropContext onDragEnd={onDragEnd}>*/}
-            {/*    <Droppable droppableId={'tabs'}>*/}
-            {/*        {(provided)=>{*/}
-            {/*            <div {...provided.droppableProps} ref={provided.innerRef}>*/}
-            {/*                <Draggable draggableId={'123'} index={1}>*/}
-            {/*                    <div>1</div>*/}
-            {/*                </Draggable>*/}
-            {/*                <Draggable draggableId={'123'} index={2}>*/}
-            {/*                    <div>2</div>*/}
-            {/*                </Draggable>*/}
-            {/*                <Draggable draggableId={'123'} index={3}>*/}
-            {/*                    <div>3</div>*/}
-            {/*                </Draggable>*/}
-            {/*            </div>*/}
-            {/*        }}*/}
-            {/*    </Droppable>*/}
-            {/*</DragDropContext>*/}
-            
+            <Droppable droppableId={'tabs'}>
+                {(provided, snapshot) => (
+                    <div
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                    >
+                        {fakeData.map((item, index)=>(
+                        <Draggable key={item.id} draggableId={item.id} index={index}>
+                    {(provided, snapshot) => (
+                        <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+
+                    >
+                        {item.content}
+                    </div>
+                )}
+                    </Draggable>
+                    ))}
+                    </div>
+                )}
+            </Droppable>
         </div>
     )
 }
