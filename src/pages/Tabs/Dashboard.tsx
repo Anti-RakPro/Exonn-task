@@ -1,10 +1,10 @@
 import React, {useCallback} from "react";
 import {Route, useLocation} from 'react-router-dom';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import {Droppable, Draggable} from 'react-beautiful-dnd';
 
 // fake data generator
 const getItems = (count: number) =>
-    Array.from({ length: count }, (v, k) => k).map(k => ({
+    Array.from({length: count}, (v, k) => k).map(k => ({
         id: `item-${k}`,
         content: `item ${k}`
     }));
@@ -25,20 +25,19 @@ function Dashboard() {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                     >
-                        {fakeData.map((item, index)=>(
-                        <Draggable key={item.id} draggableId={item.id} index={index}>
-                    {(provided, snapshot) => (
-                        <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-
-                    >
-                        {item.content}
-                    </div>
-                )}
-                    </Draggable>
-                    ))}
+                        {fakeData.map((item, index) => (
+                            <Draggable key={item.id} draggableId={item.id} index={index}>
+                                {(provided, snapshot) => (
+                                    <div
+                                        ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                    >
+                                        {item.content}
+                                    </div>
+                                )}
+                            </Draggable>
+                        ))}
                     </div>
                 )}
             </Droppable>
