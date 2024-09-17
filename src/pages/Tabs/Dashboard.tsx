@@ -28,6 +28,7 @@ function Dashboard() {
 
     const onDragEnd = React.useCallback(
         (result) => {
+            // console.log(str)
             console.log(result)
             if (!result.destination) {
                 return;
