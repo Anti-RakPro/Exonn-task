@@ -72,69 +72,50 @@ function TabList() {
     }
 
     return (
-       <div className={styles["tab-list_body"]} >
-           <DragDropContext onDragEnd={() => {}}>
+        <div className={styles["tab-list_body"]}>
+            <Scrollbars
+                hideTracksWhenNotNeeded={true}
+                renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}
+                renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}
+                renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}
+                renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}
+                renderView={props => <div {...props} className={styles["view"]}/>}
+            >
+                <DragDropContext onDragEnd={() => {
+                }}>
+                    <Droppable droppableId={'something'} direction="horizontal">
+                        {(provided) => (
+                            <div className={styles["tab-row"]}
+                                 {...provided.droppableProps}
+                                 ref={provided.innerRef}
+                            >
+                                {tabs.map((tab, index) => {
+                                    return (
+
+                                        <Draggable key={tab.id} draggableId={tab.id} index={index}>
+                                            {(provided) => (
+                                                <Link className={tabStyle(tab)} key={tab.id}
+                                                      to={tab.routePath}
+                                                      ref={provided.innerRef}
+                                                      {...provided.draggableProps}
+                                                      {...provided.dragHandleProps}
+                                                > {tab.title}  </Link>
 
 
-               <Scrollbars
-                   hideTracksWhenNotNeeded={true}
-                   renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}
-                   renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}
-                   renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}
-                   renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}
-                   renderView={props => <div {...props} className={styles["view"]}/>}
-               >
-                   <Droppable droppableId={'something'}>
-                       {(provided) => (
-                           <div className={styles["tab-row"]}
-                                {...provided.droppableProps}
-                                ref={provided.innerRef}
-                           >
-                               {tabs.map((tab, index) => {
-                                   return (
+                                            )}
 
-                                       <Draggable key={tab.id} draggableId={tab.id} index={index}>
-                                           {(provided) => (
-                                               <Link className={tabStyle(tab)} key={tab.id}
-                                                     to={tab.routePath}
-                                                     ref={provided.innerRef}
-                                                     {...provided.draggableProps}
-                                                     {...provided.dragHandleProps}
-                                               > {tab.title}  </Link>
+                                        </Draggable>
 
+                                    )
+                                })}
+                                {provided.placeholder}
+                            </div>
+                        )}
 
-                                           )}
-                                           {/*{provided.placeholder}*/}
-                                       </Draggable>
-
-                                   )
-                               })}
-                           </div>
-                       )}
-                   </Droppable>
-
-
-               </Scrollbars>
-
-
-               {/*<div className={styles["tab-row"]}>*/}
-               {/*    <Scrollbars*/}
-               {/*        hideTracksWhenNotNeeded={true}*/}
-               {/*        renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}*/}
-               {/*        renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}*/}
-               {/*        renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}*/}
-               {/*        renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}*/}
-               {/*        renderView={props => <div {...props} className={styles["view"]}/>}*/}
-               {/*    >*/}
-               {/*        {tabs.map((tab) => {*/}
-               {/*            return (*/}
-               {/*                <Link className={tabStyle(tab)} key={tab.id} to={tab.routePath}> {tab.title}  </Link>*/}
-               {/*            )*/}
-               {/*        })}*/}
-               {/*    </Scrollbars>*/}
-               {/*</div>*/}
-           </DragDropContext>
-       </div>
+                    </Droppable>
+                </DragDropContext>
+            </Scrollbars>
+        </div>
     )
 
 }

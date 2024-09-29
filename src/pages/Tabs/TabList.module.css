@@ -6,13 +6,13 @@
     /*position: absolute;*/
     /*top: 0;*/
     /*left: 0;*/
-    /*display: flex;*/
+    display: flex;
     /*max-width: 100%;*/
     /*display: inline-block;*/
     height: 33px;
     /*overflow-x: auto;*/
     /*overflow-y: hidden;*/
-    /*flex-wrap: nowrap;*/
+    flex-wrap: nowrap;
 }
 
 .tab-item {
@@ -22,6 +22,8 @@
     cursor: pointer;
     text-decoration: none;
     color: gray;
+    max-width: 100px;
+    max-height: 50px;
 }
 .tab-item:hover {
     background-color: rgb(241, 245, 248);

@@ -51,11 +51,9 @@ function Dashboard() {
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
-            <div>
-                <div>Dashboard</div>
-                <div>{currentUrl}</div>
+
                 <Droppable droppableId={'tabs'}>
-                    {(provided, snapshot) => (
+                    {(provided) => (
                         <div
                             {...provided.droppableProps}
                             ref={provided.innerRef}
@@ -77,7 +75,7 @@ function Dashboard() {
                         </div>
                     )}
                 </Droppable>
-            </div>
+
         </DragDropContext>
 
     )
