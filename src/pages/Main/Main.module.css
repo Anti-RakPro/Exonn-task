@@ -22,10 +22,11 @@
 }
 
 .main-block {
-    grid-area: 2 / 2 / 3 / 3;
+    /*grid-area: 2 / 2 / 3 / 3;*/
     /*height: 100%;*/
     /*position: relative;*/
     background-color: rgb(241, 245, 248);
+
 
 }
 

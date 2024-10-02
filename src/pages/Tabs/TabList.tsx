@@ -72,68 +72,70 @@ function TabList() {
     }
 
     return (
-        <DragDropContext onDragEnd={() => {
-        }}>
+       <div className={styles["tab-list_body"]} >
+           <DragDropContext onDragEnd={() => {}}>
 
 
-            <Scrollbars
-                hideTracksWhenNotNeeded={true}
-                renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}
-                renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}
-                renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}
-                renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}
-                renderView={props => <div {...props} className={styles["view"]}/>}
-            >
-                <Droppable droppableId={'something'}>
-                    {(provided) => (
-                        <div className={styles["tab-row"]}
-                             {...provided.droppableProps}
-                             ref={provided.innerRef}
-                        >
-                            {tabs.map((tab, index) => {
-                                return (
+               <Scrollbars
+                   hideTracksWhenNotNeeded={true}
+                   renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}
+                   renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}
+                   renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}
+                   renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}
+                   renderView={props => <div {...props} className={styles["view"]}/>}
+               >
+                   <Droppable droppableId={'something'}>
+                       {(provided) => (
+                           <div className={styles["tab-row"]}
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}
+                           >
+                               {tabs.map((tab, index) => {
+                                   return (
 
-                                    <Draggable key={tab.id} draggableId={tab.id} index={index}>
-                                        {(provided) => (
-                                            <Link className={tabStyle(tab)} key={tab.id}
-                                                  to={tab.routePath}
-                                                  ref={provided.innerRef}
-                                                  {...provided.draggableProps}
-                                                  {...provided.dragHandleProps}
-                                            > {tab.title}  </Link>
-
-
-                                        )}
-                                        {/*{provided.placeholder}*/}
-                                    </Draggable>
-
-                                )
-                            })}
-                        </div>
-                    )}
-                </Droppable>
+                                       <Draggable key={tab.id} draggableId={tab.id} index={index}>
+                                           {(provided) => (
+                                               <Link className={tabStyle(tab)} key={tab.id}
+                                                     to={tab.routePath}
+                                                     ref={provided.innerRef}
+                                                     {...provided.draggableProps}
+                                                     {...provided.dragHandleProps}
+                                               > {tab.title}  </Link>
 
 
-            </Scrollbars>
+                                           )}
+                                           {/*{provided.placeholder}*/}
+                                       </Draggable>
+
+                                   )
+                               })}
+                           </div>
+                       )}
+                   </Droppable>
 
 
-            {/*<div className={styles["tab-row"]}>*/}
-            {/*    <Scrollbars*/}
-            {/*        hideTracksWhenNotNeeded={true}*/}
-            {/*        renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}*/}
-            {/*        renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}*/}
-            {/*        renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}*/}
-            {/*        renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}*/}
-            {/*        renderView={props => <div {...props} className={styles["view"]}/>}*/}
-            {/*    >*/}
-            {/*        {tabs.map((tab) => {*/}
-            {/*            return (*/}
-            {/*                <Link className={tabStyle(tab)} key={tab.id} to={tab.routePath}> {tab.title}  </Link>*/}
-            {/*            )*/}
-            {/*        })}*/}
-            {/*    </Scrollbars>*/}
-            {/*</div>*/}
-        </DragDropContext>)
+               </Scrollbars>
+
+
+               {/*<div className={styles["tab-row"]}>*/}
+               {/*    <Scrollbars*/}
+               {/*        hideTracksWhenNotNeeded={true}*/}
+               {/*        renderTrackHorizontal={props => <div {...props} className={styles["track-horizontal"]}/>}*/}
+               {/*        renderTrackVertical={props => <div {...props} className={styles["track-vertical"]}/>}*/}
+               {/*        renderThumbHorizontal={props => <div {...props} className={styles["thumb-horizontal"]}/>}*/}
+               {/*        renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}*/}
+               {/*        renderView={props => <div {...props} className={styles["view"]}/>}*/}
+               {/*    >*/}
+               {/*        {tabs.map((tab) => {*/}
+               {/*            return (*/}
+               {/*                <Link className={tabStyle(tab)} key={tab.id} to={tab.routePath}> {tab.title}  </Link>*/}
+               {/*            )*/}
+               {/*        })}*/}
+               {/*    </Scrollbars>*/}
+               {/*</div>*/}
+           </DragDropContext>
+       </div>
+    )
 
 }
 

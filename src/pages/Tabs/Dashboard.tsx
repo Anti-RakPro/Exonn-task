@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, {useCallback, useState} from "react";
 import {Route, useLocation} from 'react-router-dom';
 import {Droppable, Draggable, DragDropContext} from 'react-beautiful-dnd';
@@ -11,7 +13,7 @@ const getItems = (count: number) =>
 const fakeDataInitial = getItems(10)
 
 
-function reorder(list, startIndex, endIndex) {
+function reorder(list: any, startIndex: any, endIndex: any) {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
@@ -27,7 +29,7 @@ function Dashboard() {
     const [fakeData, setItems] = useState(fakeDataInitial);
 
     const onDragEnd = React.useCallback(
-        (result) => {
+        (result: any) => {
             // console.log(str)
             console.log(result)
             if (!result.destination) {
@@ -38,6 +40,7 @@ function Dashboard() {
             }
 
             // void setItems
+
             setItems((items) =>
                 reorder(items, result.source.index, result.destination.index)
             );
