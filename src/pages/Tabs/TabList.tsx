@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./TabList.module.css";
 import {Link, useLocation} from "react-router-dom";
 import {Scrollbars} from 'react-custom-scrollbars-2'
@@ -55,17 +55,42 @@ const obj = [
         // routeElement: {Dashboard},
         isOpened: false,
     },]
-const tabs = [...obj]
+const tabsUnchanged = [...obj]
 
-// interface Tab {
-//     routePath: string;
-//     // Add other properties if necessary
-// }
+function reorder(list: any, startIndex: any, endIndex: any) {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+}
 
 function TabList() {
 
     const location = useLocation();
     const currentUrl = location.pathname + location.search + location.hash;
+
+    const [tabs, setItems] = useState(tabsUnchanged);
+
+    const onDragEnd = React.useCallback(
+        (result: any) => {
+            // console.log(str)
+            console.log(result)
+            if (!result.destination) {
+                return;
+            }
+            if (result.source.index === result.destination.index) {
+                return;
+            }
+
+            // void setItems
+
+            setItems((items) =>
+                reorder(items, result.source.index, result.destination.index)
+            );
+        },
+        [setItems]
+    );
 
     function tabStyle(tab: any) {
         return `${styles["tab-item"]} ${currentUrl === tab.routePath ? styles['tab-item_active'] : ''}`
@@ -81,8 +106,7 @@ function TabList() {
                 renderThumbVertical={props => <div {...props} className={styles["thumb-vertical"]}/>}
                 renderView={props => <div {...props} className={styles["view"]}/>}
             >
-                <DragDropContext onDragEnd={() => {
-                }}>
+                <DragDropContext onDragEnd={onDragEnd}>
                     <Droppable droppableId={'something'} direction="horizontal">
                         {(provided) => (
                             <div className={styles["tab-row"]}
