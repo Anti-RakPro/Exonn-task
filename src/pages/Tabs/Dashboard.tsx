@@ -5,7 +5,8 @@ import {Route, useLocation} from 'react-router-dom';
 import {Droppable, Draggable, DragDropContext} from 'react-beautiful-dnd';
 
 // fake data generator
-const getItems = (count: number) =>
+const
+    getItems = (count: number) =>
     Array.from({length: count}, (v, k) => k).map(k => ({
         id: `item-${k}`,
         content: `item ${k}`
