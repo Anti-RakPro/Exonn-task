@@ -57,7 +57,11 @@ const obj = [
     },]
 const tabsUnchanged = [...obj]
 
-function reorder(list: any, startIndex: any, endIndex: any) {
+function reorder(
+    list: { id: string; title: string; routePath: string; isOpened: boolean; }[],
+    startIndex: number,
+    endIndex: number
+): { id: string; title: string; routePath: string; isOpened: boolean; }[] {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
