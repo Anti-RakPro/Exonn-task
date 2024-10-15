@@ -15,7 +15,7 @@ function Main() {
                     <TabList/>
                     <div className={styles["main-display"]}>
                         <Routes>
-                            <Route path={'/dashboard'} element={<Dashboard/>}/>
+                            <Route path={'dashboard'} element={<Dashboard/>}/>
                         </Routes>
                     </div>
                 </div>
